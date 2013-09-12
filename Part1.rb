@@ -4,6 +4,14 @@ class Dessert
         @calories = calories
     end
 
+    def name=(name)
+    	@name = name
+    end
+
+  	def calories=(calories)
+  		@calories = calories
+  	end
+
     def name
     	return @name
     end
@@ -13,7 +21,10 @@ class Dessert
     end
 
     def healthy?
-        # Your code here
+        if @calories < 200; return true
+        else
+        	return false
+        end
     end
 
     def delicious?
@@ -21,14 +32,20 @@ class Dessert
     end
 end
 
-Cake = Dessert.initialize("Cake", 200)
+Cake = Dessert.new("cake", 200)
 
 puts Cake.name
+Cake.name=("pie")
+puts Cake.name
 puts Cake.calories
+puts Cake.healthy?
+puts Cake.delicious?
+Cake.calories=(100)
+puts Cake.healthy?
 
 class JellyBean < Dessert
     def initialize(name, calories, flavor)
-        # Your code here
+        @flavor = flavor
     end
 
     def delicious?
