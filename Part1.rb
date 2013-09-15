@@ -45,6 +45,7 @@ end
 
 class JellyBean < Dessert
     def initialize(name, calories, flavor)
+    	super(name,calories)
         @flavor = flavor
     end
 
@@ -57,6 +58,11 @@ class JellyBean < Dessert
     end
 
     def delicious?
-        # Your code here
+        if flavor == "black licorice"; return false; end
+        super
     end
 end
+
+grapeBean = JellyBean.new("JellyBean", 10, "black licorice")
+puts grapeBean.name, grapeBean.calories, grapeBean.flavor
+puts grapeBean.delicious?
