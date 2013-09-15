@@ -32,16 +32,16 @@ class Dessert
     end
 end
 
-# Cake = Dessert.new("cake", 200)
+Cake = Dessert.new("cake", 200)
 
-# puts Cake.name
-# Cake.name=("pie")
-# puts Cake.name
-# puts Cake.calories
-# puts Cake.healthy?
-# puts Cake.delicious?
-# Cake.calories=(100)
-# puts Cake.healthy?
+puts Cake.name
+Cake.name=("pie")
+puts Cake.name
+puts Cake.calories
+puts Cake.healthy?
+puts Cake.delicious?
+Cake.calories=(100)
+puts Cake.healthy?
 
 class JellyBean < Dessert
     def initialize(name, calories, flavor)
