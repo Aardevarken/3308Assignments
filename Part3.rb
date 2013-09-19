@@ -19,8 +19,6 @@ class Numeric
  end
 end
 
-puts 1.rupee.in(:fruitbats)
-
 def palindrome?(string)
 	str = string.downcase
 	str = string.gsub(/[\W]/, "")
