@@ -1,26 +1,25 @@
+class CurrencyNotSupportedError < StandardError; end
+
 class Numeric
- @@currencies = {'yen' => 0.013, 'euro' => 1.292, 'rupee' => 0.019}
+ @@currencies = {'yen' => 0.013, 'euro' => 1.292, 'rupee' => 0.019, 'dollar' => 1}
  def method_missing(method_id)
    singular_currency = method_id.to_s.gsub( /s$/, '')
    if @@currencies.has_key?(singular_currency)
      self * @@currencies[singular_currency]
-     @currency = singular_currency
    else
      super
    end
  end
  def in(currency)
- 	case currency
- 	when :euro or :euros
+ 	current_currency = currency.id2name.gsub( /s$/, '')
+ 	if @@currencies.has_key?(current_currency)
+ 		self / @@currencies[current_currency]
+ 	else raise CurrencyNotSupportedError
  	end
- 	when :yen
- 	end
- 	when :rupee or :rupees
- 	end
- 	when :dollar or :dollars
- 	end
+ end
 end
 
+puts 1.rupee.in(:fruitbats)
 
 def palindrome?(string)
 	str = string.downcase
